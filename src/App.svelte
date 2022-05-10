@@ -5,12 +5,10 @@
 	import Projects from "./Projects.svelte";
 	import Contact from "./Contact.svelte";
 	import Extra from "./Extra.svelte";
-	import Material from "./Material.svelte"
 	routes.set({
 	'/': Home,
 	'/project': Projects,
 	'/contact':Contact,
-	'/material':Material,
 	'/extra':Extra,
 	})
 </script>

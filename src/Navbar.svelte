@@ -5,7 +5,7 @@
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="logo">
-                <a href="#/" class="nav-link">
+                <a href="" class="nav-link">
                   <span class="link-text logo-text">Chidam</span>
                   <svg
                     aria-hidden="true"
@@ -73,7 +73,7 @@
                 <span class="link-text">Contacts</span></a>
             </li>
             <li class="nav-item">
-                <a href="#/material" class="nav-link">
+                <a href="https://write.chidam.xyz" class="nav-link">
                     <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M56 11H3V56H56V11Z" fill="#F9E109"/>
                     <path d="M35 46C29.6957 46 24.6086 43.8929 20.8579 40.1421C17.1071 36.3914 15 31.3043 15 26V11H3V56H56V46H35Z" fill="#FCBC04"/>
