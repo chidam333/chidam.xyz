@@ -7,7 +7,6 @@
     let active = [true,false,false,false,false]
     const nav=["about","works","automata","content","handles"]
     const navclickhandle = (i)=>{
-        console.log(i)
         cur=i
         cur=nav[i]
         active.fill(false)
@@ -21,7 +20,7 @@
             <div class="overlay h-full w-full absolute bg-gradient-to-b from-transparent to-neutral-900"></div>
         </div>
         <nav>
-            <ol class="list-none text-yellow-700 flex ml-6 text-xs md:text-lg lg:text-2xl gap-8 lg:gap-12 lg:ml-12 mt-4 cursor-pointer">
+            <ol class="list-none text-yellow-700 flex ml-4 md:ml-6 text-base md:text-lg lg:text-2xl gap-4 md:gap-8 lg:gap-12 lg:ml-12 mt-4 cursor-pointer">
                 {#each nav as navitem,i}
                     {#if navitem=="about"}
                         <a href="/"><li class:active={active[i]} on:click={()=>{navclickhandle(i)}}>about</li></a>
@@ -33,13 +32,16 @@
         </nav>
         <slot/>
         <footer>
-            <div class="ok fixed bottom-4">
+            <div class="ok fixed">
                 <div class="con text-stone-700 font-medium ml-6 lg:ml-12">build using sveltekit, tailwind, postgres</div>
                 <div class="con text-stone-700 font-medium ml-6 lg:ml-12">deployed on vercel, railway.app</div>
             </div>
         </footer>
 </main>
 <style>
+    .ok{
+        top: 90vh;
+    }
     .active{
         color: rgb(252, 194, 87);
     }

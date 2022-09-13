@@ -17,7 +17,7 @@
     </div>
 </main>
 <style>
-    .head,.alert{
+    .head{
         font-family: "Roboto",sans-serif;
     }
     form{
