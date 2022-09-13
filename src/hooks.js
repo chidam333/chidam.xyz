@@ -1,7 +1,9 @@
 import postgres from 'postgres'
+import 'dotenv/config'
 /** @type {import('@sveltejs/kit').Handle} */
+const urlo=process.env.POSTGRES_URL
 export async function handle({ event, resolve }) {
-    const sql = postgres('postgresql://postgres:va91rv4FLOc8xixce5LE@containers-us-west-83.railway.app:6434/railway');
+    const sql = postgres(urlo);
     event.locals = {
         sql:sql
     }

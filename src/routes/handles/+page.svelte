@@ -4,7 +4,7 @@
 <main>
     <div class="head text-amber-400 font-bold text-center mt-8 mb-8">Let's connect </div>
     <div class="form grid justify-items-center">
-        <form method="POST" class="grid">
+        <form method="POST" class="grid" on:submit={()=>{alertstuff=true}}>
             <label for="name" class="text-amber-400 mb-2 flex border-2 border-amber-900"><div class="sty bg-black w-fit grid place-items-center pl-2 border-r-4 border-r-amber-700">NAME&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp&nbsp;</div><input placeholder="Chidam" name="name" type="text" class=" w-48 md:w-60 lg:w-96 pl-2" required></label>
             <label for="email" class="text-amber-400 mb-2  flex border-2 border-amber-900"><div class="sty bg-black w-fit grid place-items-center pl-2 border-r-4 border-r-amber-700">EMAIL:&nbsp;&nbsp;&nbsp;&nbsp&nbsp;</div><input placeholder="dev@chidam.xyz" type="email" name="email" id="email" class="w-48 md:w-60 lg:w-96 pl-2" required></label>
             <label for="cont" class="text-amber-400 mb-2  flex border-2 border-amber-900"><div class="sty bg-black w-fit grid place-items-center pl-2 border-r-4 border-r-amber-700">MSG:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><input placeholder="Postgres is waiting for your message" type="text" class="pl-2 w-48 md:w-60 lg:w-96 resize-y" name="content" id="cont"></label>
