@@ -30,8 +30,8 @@
     {/if}
     {#if click}
         <div class="sec flex">
-            <a href="https://twitter.com/Chidam333" target="_blank"><div class="mb-4 font-bold ml-6 lg:ml-12 mt-4 text-black bg-zinc-700 p-1 flex"><img src="/twitter.svg" alt="twitter">&nbsp;twitter</div></a>
-            <a href="https://github.com/chidam333" target="_blank"><div class="mb-4 font-bold ml-6 lg:ml-12 mt-4 text-black bg-zinc-700 p-1 flex "><img src="./github.png" alt="github" style="height: 24px;">&nbsp; github</div></a>
+            <a href="https://twitter.com/Chidam333" target="_blank"><div class="mb-4 font-light ml-6 lg:ml-12 mt-4 text-amber-200 bg-zinc-700 p-1 flex"><img src="/twitter.png" alt="twitter" style="height: 22px;">&nbsp;twitter</div></a>
+            <a href="https://github.com/chidam333" target="_blank"><div class="mb-4 font-light ml-6 lg:ml-12 mt-4 text-amber-200 bg-zinc-700 p-1 flex "><img src="./github.png" alt="github" style="height: 24px;">&nbsp; github</div></a>
         </div>
     {/if}
 </main>

@@ -20,8 +20,8 @@
         <div class="alert bg-lime-600 mb-4 max-w-full mx-12 h-10 font-semibold grid place-items-center rounded-tr-3xl rounded-bl-3xl">Successfully logged in! Welcome back</div>
     {/if}
     <div class="sec grid grid-flow-col justify-center gap-8">
-        <a href="https://twitter.com/Chidam333" target="_blank"><div class="mb-4 mt-4 text-black font-bold bg-zinc-700 p-1 flex border-2 border-white"><img src="/twitter.svg" alt="twitter">&nbsp;twitter</div></a>
-        <a href="https://github.com/chidam333" target="_blank"><div class="mb-4 mt-4 text-black font-bold bg-zinc-700 p-1 flex border-2 border-white "><img src="./github.png" alt="github" style="height: 24px;">&nbsp; github</div></a>
+        <a href="https://twitter.com/Chidam333" target="_blank"><div class="mb-4 mt-4 text-amber-200 font-light bg-zinc-700 p-1 flex border-2 border-amber-200"><img src="/twitter.png" alt="twitter" style="height: 24px;">&nbsp;twitter</div></a>
+        <a href="https://github.com/chidam333" target="_blank"><div class="mb-4 mt-4 text-amber-200 font-light bg-zinc-700 p-1 flex border-2 border-amber-200 "><img src="./github.png" alt="github" style="height: 24px;">&nbsp; github</div></a>
     </div>
 </main>
 <style>
