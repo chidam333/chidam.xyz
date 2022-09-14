@@ -8,5 +8,6 @@ export const actions = {
       console.log(name,email,content);
       const{sql}=locals;
       await sql `insert into info(name,email,text) values(${name},${email},${content});`;
+      return { success: true };
     }
   };
