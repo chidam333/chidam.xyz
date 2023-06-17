@@ -1,5 +1,5 @@
 import {users} from "../../schema"
-import {ZOHO_AUTH} from "$env/static/private"
+import {USER_ID,ZOHO_AUTH} from "$env/static/private"
 import nodemailer from "nodemailer"
 /** @type {import('./$types').Actions} */
 /** @type {import('./$types').PageLoad} */
@@ -14,10 +14,9 @@ export const actions = {
         await db.insert(users).values({name,email,content})
         let configOption = {
           host: "smtppro.zoho.in",
-          port: 465,
-          secure:true,
+          port: 587,
           auth:{
-            user:"dev@chidam.xyz",
+            user:USER_ID,
             pass:ZOHO_AUTH
           }      
         }
