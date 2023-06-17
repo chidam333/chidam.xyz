@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1686578350454,
+      "tag": "0000_stormy_miek",
+      "breakpoints": false
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1686578426258,
+      "tag": "0001_lumpy_cerebro",
+      "breakpoints": false
+    }
+  ]
+}

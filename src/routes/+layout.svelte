@@ -1,31 +1,30 @@
 <script>
     import "../app.css";
-    import Automata from "./automata/+page.svelte";
     import Works from "./works/+page.svelte";
-    import Content from "./content/+page.svelte";
-    let cur = 0;
-    let active = [true,false,false,false,false]
-    const nav=["about","works","automata","content","handles"]
-    const navclickhandle = (i)=>{
-        cur=i
-        cur=nav[i]
-        active.fill(false)
-        active[i]=true
+    import {active} from "../stores"
+    import { onMount } from "svelte";
+    const nav=["about","works","handles"]
+    const navclickhandle = ()=>{
+        $active.fill(false)
     }
+    onMount(()=>{
+        const imgsrc=document.querySelector("#thanjavur")
+        imgsrc.src=imgsrc.dataset.src
+    })
 </script>
 <main class="bg-neutral-900 min-h-screen relative">
     <div class="content lg:mx-40  h-full">
         <div class="imgdalle h-60 overflow-y-hidden relative" title="Dall-e-2 img: Highly detailed Thanjavur painting of crowd attracted towards a  a builder demonstrating his product in expo ,set in modern day">
-            <img src="/1.png" alt="Highly detailed Thanjavur painting of crowd attracted towards a  a builder demonstrating his product in expo ,set in modern day" class="absolute imgdalle w-full lg:-top-80 z-0">
+            <img data-src="/opti1.png" id="thanjavur" alt="Highly detailed Thanjavur painting of crowd attracted towards a  a builder demonstrating his product in expo ,set in modern day" class="absolute imgdalle w-full lg:-top-80 z-0">
             <div class="overlay h-full w-full absolute bg-gradient-to-b from-transparent to-neutral-900"></div>
         </div>
         <nav>
             <ol class="list-none text-yellow-700 flex ml-4 md:ml-6 text-base md:text-lg lg:text-2xl gap-4 md:gap-8 lg:gap-12 lg:ml-12 mt-4 cursor-pointer">
                 {#each nav as navitem,i}
                     {#if navitem=="about"}
-                        <a href="/"><li class:active={active[i]} on:click={()=>{navclickhandle(i)}}>about</li></a>
+                        <a href="/"><li class:active={$active[i]} on:click={()=>{navclickhandle()}}>about</li></a>
                     {:else}
-                    <a href="/{navitem}"><li class:active={active[i]} on:click={()=>{navclickhandle(i)}}>{navitem}</li></a>            
+                    <a href="/{navitem}"><li class:active={$active[i]} on:click={()=>{navclickhandle()}}>{navitem}</li></a>            
                     {/if}
                 {/each}
             </ol>

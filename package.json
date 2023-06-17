@@ -5,21 +5,25 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"generate": "drizzle-kit generate:pg"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/kit": "next",
-		"autoprefixer": "^10.4.8",
-		"postcss": "^8.4.16",
-		"svelte": "^3.44.0",
-		"svelte-preprocess": "^4.10.7",
-		"tailwindcss": "^3.1.8",
-		"vite": "^3.1.0"
+		"@sveltejs/adapter-auto": "2.1.0",
+		"@sveltejs/kit": "^1.20.4",
+		"autoprefixer": "^10.4.14",
+		"drizzle-kit": "^0.18.1",
+		"postcss": "^8.4.24",
+		"svelte": "^3.59.1",
+		"svelte-preprocess": "^5.0.4",
+		"tailwindcss": "^3.3.2",
+		"vite": "^4.3.9"
 	},
 	"type": "module",
 	"dependencies": {
 		"dotenv": "^16.0.2",
-		"postgres": "^3.2.4"
+		"drizzle-orm": "^0.26.5",
+		"nodemailer": "^6.9.3",
+		"postgres": "^3.3.5"
 	}
 }

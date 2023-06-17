@@ -1,4 +1,10 @@
 <script>
+    import { onMount } from 'svelte';
+	import { active } from '../../stores.js';
+    onMount(()=>{
+        $active.fill(false)
+        $active[1]=true
+    })
     let display =false
     const titles=[
         "Sorting Algorithim visualizer",

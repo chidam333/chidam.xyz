@@ -1,5 +1,11 @@
 <script>
+    import { onMount } from 'svelte';
+	import { active } from '../../stores.js';
     import { enhance,applyAction } from '$app/forms';
+    onMount(()=>{
+        $active.fill(false)
+        $active[2]=true
+    })
       /** @type {import('./$types').PageData} */
     export let data;
     /** @type {import('./$types').ActionData} */
@@ -9,7 +15,7 @@
 <main>
     <div class="head text-amber-400 font-bold text-center mt-8 mb-8">Let's connect </div>
     <div class="form grid justify-items-center">
-        <form method="POST" class="grid" on:enhance>
+        <form method="POST" class="grid">
             <label for="name" class="text-amber-400 mb-2 flex border-2 border-amber-900"><div class="sty bg-black w-fit grid place-items-center pl-2 border-r-4 border-r-amber-700">NAME&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp&nbsp;</div><input placeholder="Chidam" name="name" type="text" class=" w-48 md:w-60 lg:w-96 pl-2" bind:value={name} required></label>
             <label for="email" class="text-amber-400 mb-2  flex border-2 border-amber-900"><div class="sty bg-black w-fit grid place-items-center pl-2 border-r-4 border-r-amber-700">EMAIL:&nbsp;&nbsp;&nbsp;&nbsp&nbsp;</div><input placeholder="dev@chidam.xyz" type="email" name="email" id="email" class="w-48 md:w-60 lg:w-96 pl-2" required></label>
             <label for="cont" class="text-amber-400 mb-2  flex border-2 border-amber-900"><div class="sty bg-black w-fit grid place-items-center pl-2 border-r-4 border-r-amber-700">MSG:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><input placeholder="Postgres is waiting for your message" type="text" class="pl-2 w-48 md:w-60 lg:w-96 resize-y" name="content" id="cont"></label>
@@ -17,7 +23,9 @@
         </form>
     </div>
     {#if form?.success}
-        <div class="alert bg-lime-600 mb-4 max-w-full mx-12 h-10 font-semibold grid place-items-center rounded-tr-3xl rounded-bl-3xl">Successfully logged in! Welcome back</div>
+        <div class="alert bg-lime-600 mb-4 max-w-full mx-12 h-10 font-semibold grid place-items-center rounded-tr-3xl rounded-bl-3xl">thanks for the msg i will read it :&#41;</div>
+    {:else if form?.fail}
+        <div class="alert bg-red-600 mb-4 max-w-full mx-12 h-10 font-semibold grid place-items-center rounded-tr-3xl rounded-bl-3xl">facing some server issue !! dm me in twitter</div>
     {/if}
     <div class="sec grid grid-flow-col justify-center gap-8">
         <a href="https://twitter.com/Chidam333" target="_blank"><div class="mb-4 mt-4 text-amber-200 font-light bg-zinc-700 p-1 flex border-2 border-amber-200"><img src="/twitter.png" alt="twitter" style="height: 24px;">&nbsp;twitter</div></a>
