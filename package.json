@@ -24,6 +24,7 @@
 		"dotenv": "^16.0.2",
 		"drizzle-orm": "^0.26.5",
 		"nodemailer": "^6.9.3",
-		"postgres": "^3.3.5"
+		"postgres": "^3.3.5",
+		"svelte-pdf": "^1.0.20"
 	}
 }
