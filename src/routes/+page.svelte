@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
 	import { active } from './../stores.js';
     onMount(()=>{
-        console.log($active)
+        // console.log($active)
         $active[0]=true
     })
     let click =false;
