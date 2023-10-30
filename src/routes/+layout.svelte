@@ -19,21 +19,21 @@
             <div class="overlay h-full w-full absolute bg-gradient-to-b from-transparent to-neutral-900"></div>
         </div>
         <nav>
-            <ol class="list-none text-yellow-700 flex ml-4 md:ml-6 text-base md:text-lg lg:text-2xl gap-4 md:gap-8 lg:gap-12 lg:ml-12 mt-4 cursor-pointer">
+            <div class="list-none text-yellow-700 flex ml-4 md:ml-6 text-base md:text-lg lg:text-2xl gap-4 md:gap-8 lg:gap-12 lg:ml-12 mt-4 cursor-pointer">
                 {#each nav as navitem,i}
                     {#if navitem=="about"}
-                        <a href="/"><li class:active={$active[i]} on:click={()=>{navclickhandle()}}>about</li></a>
+                    <a href="/"><span class:active={$active[i]} class="bg-black" on:click={()=>{navclickhandle()}}>about</span></a>
                     {:else}
-                    <a href="/{navitem}"><li class:active={$active[i]} on:click={()=>{navclickhandle()}}>{navitem}</li></a>            
+                    <a href="/{navitem}"><span class:active={$active[i]} on:click={()=>{navclickhandle()}}>{navitem}</span></a>            
                     {/if}
                 {/each}
-            </ol>
+            </div>
         </nav>
         <slot/>
         <footer>
             <div class="ok fixed">
                 <div class="con text-stone-700 font-medium ml-6 lg:ml-12">build using sveltekit, tailwind, postgres</div>
-                <div class="con text-stone-700 font-medium ml-6 lg:ml-12">deployed on vercel, railway.app</div>
+                <div class="con text-stone-700 font-medium ml-6 lg:ml-12">deployed on vercel & neon</div>
             </div>
         </footer>
 </main>
@@ -46,5 +46,8 @@
     }
     nav ol li{
         font-family: 'Playfair Display', serif;
+    }
+    a:focus{
+        background: transparent;
     }
 </style>
