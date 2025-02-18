@@ -1,5 +1,5 @@
 import {users} from "../../schema"
-import {USER_ID,ZOHO_AUTH} from "$env/static/private"
+import {USER_ID,ZOHO_AUTH,GOOGLE_PWD,GOOGLE_USER_ID} from "$env/static/private"
 import nodemailer from "nodemailer"
 /** @type {import('./$types').Actions} */
 /** @type {import('./$types').PageLoad} */
@@ -13,20 +13,20 @@ export const actions = {
       try{
         await db.insert(users).values({name,email,content})
         let configOption = {
-          host: "smtppro.zoho.in",
+          host: "smtp.gmail.com",
           port: 587,
           auth:{
-            user:USER_ID,
-            pass:ZOHO_AUTH
+            user:GOOGLE_USER_ID,
+            pass:GOOGLE_PWD
           }      
         }
         let transporter = nodemailer.createTransport(configOption)
         let message = {
-          from:'chidam <dev@chidam.xyz>',
-          to:'<dev@chidam.xyz>,<chidam3chain@gmail.com>',
-          subject:'A new message in the chidam.xyz db',
-          html:`${name} with email id of ${email} has sent you a msg <br/>
-          "${content}"`
+          from:'chidam <chidam3work@gmail.com>',
+          to:`${email}`,
+          cc:'<chidam3work@gmail.com>,<chidam3chain@gmail.com>',
+          subject:`${name} thank you will get back to you soon!`,
+          html:`If you have more questions hmu on chidam3chain@gmail.com thanks ! `
         }
         await transporter.sendMail(message)
       }catch(error){
