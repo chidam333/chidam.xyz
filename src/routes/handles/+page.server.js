@@ -25,8 +25,8 @@ export const actions = {
           from:'chidam <chidam3work@gmail.com>',
           to:`${email}`,
           cc:'<chidam3work@gmail.com>,<chidam3chain@gmail.com>',
-          subject:`${name} thank you will get back to you soon!`,
-          html:`If you have more questions hmu on chidam3chain@gmail.com thanks ! `
+          subject:`${name} thank you ! will get back to you soon!`,
+          html:`If you have more questions hmu on chidam3work@gmail.com thanks ! `
         }
         await transporter.sendMail(message)
       }catch(error){
