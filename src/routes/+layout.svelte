@@ -19,7 +19,7 @@
             <div class="overlay h-full w-full absolute bg-gradient-to-b from-transparent to-neutral-900"></div>
         </div>
         <nav>
-            <div class="list-none text-yellow-700 flex ml-4 md:ml-6 text-base md:text-lg lg:text-2xl gap-4 md:gap-8 lg:gap-12 lg:ml-12 mt-4 cursor-pointer">
+            <div class="list-none text-yellow-700 flex ml-4 md:ml-6 text-base md:text-lg lg:text-2xl gap-4 md:gap-8 lg:gap-12 lg:ml-12 mt-4">
                 {#each nav as navitem,i}
                     {#if navitem=="about"}
                     <a href="/"><span class:active={$active[i]} on:click={()=>{navclickhandle()}}>about</span></a>
