@@ -72,7 +72,7 @@ for (const file of readdirSync(dir).filter(f => f.endsWith('.md'))) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>/* image paths are relative to this folder: /post -> /post/ so they don't resolve one level up */ if (!/\/$|\.html?$/.test(location.pathname)) location.replace(location.pathname + '/' + location.search + location.hash);</script>
+<script>/* image paths are relative to this folder: /post -> /post/ so they don't resolve one level up */ if (!/\\/$|\\.html?$/.test(location.pathname)) location.replace(location.pathname + '/' + location.search + location.hash);</script>
 <title>${escapeHtml(title)}</title>
 <meta name="author" content="${AUTHOR.name}">
 <link rel="author" href="${AUTHOR.url}">
