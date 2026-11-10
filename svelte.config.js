@@ -1,9 +1,10 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    adapter: adapter()
+    // Explicit runtime: this adapter version only auto-detects Node 16/18/20.
+    adapter: adapter({ runtime: 'nodejs26.x' })
   },
   preprocess: vitePreprocess()
 };
