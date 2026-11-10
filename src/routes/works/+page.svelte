@@ -5,43 +5,21 @@
         $active.fill(false)
         $active[1]=true
     })
-    let display =false
-    const titles=[
-        "Sorting Algorithim visualizer",
-        "Vartalap DAPP",
-        "movieso DAPP"]
-    const link=[
-        "https://visualize.chidam.xyz",
-        "https://vartalap.chidam.xyz",
-        "https://movieso.chidam.xyz"
+    const works=[
+        {title:"prometheus/client_js", link:"https://github.com/prometheus/client_js/pull/742", desc:"perf: switched to the faster API for collecting RSS memory"},
+        {title:"CCExtractor", link:"https://github.com/CCExtractor/ccextractor/pull/1518", desc:"added support for 2, 3 and 4 byte UTF-8 characters in WebVTT"},
+        {title:"DiceDB JS client", link:"https://github.com/chidam333/dicedb-js", desc:"an async JavaScript client for DiceDB, a reactive Redis-inspired DB"},
     ]
-    const desc=[
-        "An interactive site with animated sorting algo visualisation",
-        "An app where you can make multiple accounts and save data modularly and access based on account id from solana blockchain",
-        "Project which made us win daksh hackathon it rewards nft as rewards for booking ticket which can be redeemed"
-    ]
-</script> 
-<main>
-    <div class="tit ml-6 lg:ml-12 mt-8 text-amber-100 font-bold text-xl">Some of the works</div>
+</script>
+<main class="pb-24">
     <ul class="mt-8">
-        {#each titles as metadata,i}
-            <!-- {#if i==0}
-                <li class="ml-6 lg:ml-12 text-amber-300"><span class="text-amber-600 font-extrabold border-b-2  border-amber-300 cursor-pointer" on:click={()=>{display = (display==false) ? true : false}}>{metadata}</span> : {desc[i]}</li>
-                {#if display}
-                    <iframe class="w-full h-screen bg-slate-300 lg:ml-12 mt-4" src={link[0]} frameborder="5" title=""></iframe>
-                {/if}
-            {:else} -->
-                <li class="ml-6 lg:ml-12 mt-2 text-amber-300"><a class="text-amber-600 font-extrabold border-b-2  border-amber-300 cursor-pointer" href={link[i]} target="_blank">{metadata}</a> : {desc[i]}</li>
-            <!-- {/if} -->
-        {/each}    
+        {#each works as item}
+            <li class="ml-6 lg:ml-12 mt-2 text-amber-300"><a class="text-amber-600 font-extrabold border-b-2  border-amber-300 cursor-pointer" href={item.link} target="_blank">{item.title}</a> : {item.desc}</li>
+        {/each}
     </ul>
-    <div class="allwork  ml-6 lg:ml-12 mt-8 font-semibold  grid place-items-center"><a href="https://docs.google.com/spreadsheets/d/1AFjJyJ9xJOUGeoZA2tyQHB7QS45KQvOwFtZxgnsHGQU/" target="_blank" class="ok pl-2 pr-2 w-fit bg-white border-4 border-black">all works</a></div>
+    <div class="allwork ml-6 lg:ml-12 mt-10"><a href="https://docs.google.com/spreadsheets/d/1AFjJyJ9xJOUGeoZA2tyQHB7QS45KQvOwFtZxgnsHGQU/" target="_blank" class="text-sm text-stone-500 border border-stone-700 px-2 py-1 hover:text-stone-300 hover:border-stone-500">older projects ↗</a></div>
 </main>
 <style>
-    /* iframe::-webkit-scrollbar-track{
-        color: black;
-        background: brown;
-    } */
     .allwork{
         font-family: 'Playfair Display', serif;
     }

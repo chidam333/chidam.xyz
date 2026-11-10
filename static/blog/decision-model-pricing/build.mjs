@@ -60,11 +60,39 @@ const escapeHtml = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/
 // Byline: <meta name="author"> and <link rel="author"> in the head, and an <address> under the title
 const AUTHOR = { name: 'chidam333', url: 'https://github.com/chidam333' };
 
+// Link previews (Open Graph / Twitter): crawlers need absolute URLs, and not all of them read WebP,
+// so images/og-image.jpg (1200x630) is re-encoded as a stripped, progressive mozjpeg in images/web/.
+const PAGE_URL = `https://chidam.xyz/blog/${fileURLToPath(dir).split('/').filter(Boolean).pop()}/`;
+const OG_SRC = 'images/og-image.jpg';
+const OG_OUT = WEB_DIR + 'og-image.jpg';
+const hasOg = existsSync(new URL(OG_SRC, dir));
+if (hasOg) {
+	const out = new URL(OG_OUT, dir);
+	if (!existsSync(out) || statSync(out).mtimeMs < statSync(new URL(OG_SRC, dir)).mtimeMs) {
+		const buf = await sharp(fileURLToPath(new URL(OG_SRC, dir)))
+			.resize(1200, 630, { fit: 'cover' })
+			.toColourspace('srgb')
+			.jpeg({ quality: 82, progressive: true, mozjpeg: true })
+			.toBuffer();
+		writeFileSync(out, buf);
+		console.log(`  ${OG_OUT}: ${Math.round(statSync(new URL(OG_SRC, dir)).size / 1024)} KB -> ${Math.round(buf.length / 1024)} KB`);
+	}
+}
+// Hand-written preview text; the first paragraph of the article is used when this is empty.
+const DESCRIPTION = "Luna's per-token price is 2.4x Jev's, yet my bill came out 20x higher. The culprit: 144 hidden input tokens on every question. Here's how I found them.";
+// First plain paragraph of the article, as text, for the preview description
+const describe = markdown => {
+	const para = markdown.split(/\n\s*\n/).map(p => p.trim()).find(p => p && !/^(#|!|\||>|-|\*|\d+\.)/.test(p)) ?? '';
+	const text = para.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/\[\^[^\]]*\]/g, '').replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
+	return text.length > 200 ? text.slice(0, 197).replace(/\s+\S*$/, '') + '…' : text;
+};
+
 for (const file of readdirSync(dir).filter(f => f.endsWith('.md'))) {
 	const source = readFileSync(new URL(file, dir), 'utf8');
 	// Obsidian embeds -> standard markdown images (the .md file itself is not changed)
 	const markdown = source.replace(/!\[\[([^\]|]+)(?:\|[^\]]*)?\]\]/g, (_, name) => `![](images/${encodeURI(name.trim())})`);
 	const title = file.replace(/\.md$/, '');
+	const description = DESCRIPTION || describe(markdown);
 	const pngs = [...new Set([...markdown.matchAll(/!\[[^\]]*\]\(([^)\s]+)/g)].map(m => m[1]).filter(isLocalPng))];
 	await Promise.all(pngs.map(optimise));
 	const html = `<!doctype html>
@@ -76,6 +104,23 @@ for (const file of readdirSync(dir).filter(f => f.endsWith('.md'))) {
 <title>${escapeHtml(title)}</title>
 <meta name="author" content="${AUTHOR.name}">
 <link rel="author" href="${AUTHOR.url}">
+<meta name="description" content="${escapeHtml(description)}">
+<link rel="canonical" href="${PAGE_URL}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="${PAGE_URL}">
+<meta property="og:title" content="${escapeHtml(title)}">
+<meta property="og:description" content="${escapeHtml(description)}">
+<meta name="twitter:title" content="${escapeHtml(title)}">
+<meta name="twitter:description" content="${escapeHtml(description)}">${hasOg ? `
+<meta property="og:image" content="${PAGE_URL}${OG_OUT}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${escapeHtml(title)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${PAGE_URL}${OG_OUT}">
+<meta name="twitter:image:alt" content="${escapeHtml(title)}">` : `
+<meta name="twitter:card" content="summary">`}
 <style>body { max-width: 720px; margin: 0 auto; padding: 48px 16px; } img { max-width: 100%; height: auto; } table { margin: 0 auto; border-collapse: collapse; } th, td { border: 1px solid; padding: 4px 12px; }</style>
 </head>
 <body>
