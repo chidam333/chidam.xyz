@@ -78,6 +78,9 @@ if (hasOg) {
 		console.log(`  ${OG_OUT}: ${Math.round(statSync(new URL(OG_SRC, dir)).size / 1024)} KB -> ${Math.round(buf.length / 1024)} KB`);
 	}
 }
+// Date of authorship (YYYY-MM-DD): shown under the title and in article:published_time
+const DATE = '2026-11-10';
+const prettyDate = d => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 // Hand-written preview text; the first paragraph of the article is used when this is empty.
 const DESCRIPTION = "Luna's per-token price is 2.4x Jev's, yet my bill came out 20x higher. The culprit: 144 hidden input tokens on every question. Here's how I found them.";
 // First plain paragraph of the article, as text, for the preview description
@@ -107,6 +110,7 @@ for (const file of readdirSync(dir).filter(f => f.endsWith('.md'))) {
 <meta name="description" content="${escapeHtml(description)}">
 <link rel="canonical" href="${PAGE_URL}">
 <meta property="og:type" content="article">
+<meta property="article:published_time" content="${DATE}">
 <meta property="og:url" content="${PAGE_URL}">
 <meta property="og:title" content="${escapeHtml(title)}">
 <meta property="og:description" content="${escapeHtml(description)}">
@@ -127,7 +131,7 @@ for (const file of readdirSync(dir).filter(f => f.endsWith('.md'))) {
 <article>
 <header>
 <h1>${escapeHtml(title)}</h1>
-<address>By <a rel="author noopener" target="_blank" href="${AUTHOR.url}">${AUTHOR.name}</a></address>
+<address>By <a rel="author noopener" target="_blank" href="${AUTHOR.url}">${AUTHOR.name}</a> · <time datetime="${DATE}">${prettyDate(DATE)}</time></address>
 </header>
 ${md.render(markdown)}</article>
 </body>
