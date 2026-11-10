@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* image paths are relative to this folder: /post -> /post/ so they don't resolve one level up */ if (!/\/$|\.html?$/.test(location.pathname)) location.replace(location.pathname + '/' + location.search + location.hash);</script>
 <title>Luna decision model is 20x costlier than Jev</title>
 <meta name="author" content="chidam333">
 <link rel="author" href="https://github.com/chidam333">
@@ -12,7 +13,7 @@
 <article>
 <header>
 <h1>Luna decision model is 20x costlier than Jev</h1>
-<address>By <a rel="author" href="https://github.com/chidam333">chidam333</a></address>
+<address>By <a rel="author noopener" target="_blank" href="https://github.com/chidam333">chidam333</a></address>
 </header>
 <p>While i was testing the accuracy of different decision models for an internal eval, i found out some interesting pricing quirks on how they are calculated.</p>
 <p>My assumption for pricing was that they would follow input pricing differential - Luna is 2.4 times costlier than jev, so the final cost for a request would be 2.4 times to that of jev.</p>
