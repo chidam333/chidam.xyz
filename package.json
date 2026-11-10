@@ -26,5 +26,8 @@
 		"nodemailer": "^6.9.3",
 		"postgres": "^3.3.5",
 		"svelte-pdf": "^1.0.20"
+	},
+	"engines": {
+		"node": ">=26"
 	}
 }
