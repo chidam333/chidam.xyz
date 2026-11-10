@@ -28,7 +28,10 @@
             <li class="ml-6 lg:ml-12 mt-2 text-amber-300"><a class="text-amber-600 font-extrabold border-b-2 border-amber-300 cursor-pointer" href={post.link} data-sveltekit-reload>{post.title}</a> <time class="text-sm text-stone-500" datetime={post.date}>· {prettyDate(post.date)}</time></li>
         {/each}
     </ul>
-    <div class="allwork ml-6 lg:ml-12 mt-10"><a href="https://docs.google.com/spreadsheets/d/1AFjJyJ9xJOUGeoZA2tyQHB7QS45KQvOwFtZxgnsHGQU/" target="_blank" class="text-sm text-stone-500 border border-stone-700 px-2 py-1 hover:text-stone-300 hover:border-stone-500">older projects ↗</a></div>
+    <div class="allwork ml-6 lg:ml-12 mt-10 flex flex-wrap items-center gap-3">
+        <a href="/resume" target="_blank" data-sveltekit-reload class="text-sm font-semibold text-amber-400 border border-amber-400 px-2 py-1 hover:text-amber-200 hover:border-amber-200">resume ↗</a>
+        <a href="https://docs.google.com/spreadsheets/d/1AFjJyJ9xJOUGeoZA2tyQHB7QS45KQvOwFtZxgnsHGQU/" target="_blank" class="text-sm text-stone-500 border border-stone-700 px-2 py-1 hover:text-stone-300 hover:border-stone-500">older projects ↗</a>
+    </div>
 </main>
 <style>
     .allwork{
