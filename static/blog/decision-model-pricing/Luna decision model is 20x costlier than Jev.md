@@ -111,6 +111,8 @@ For my peace of mind, i tested the same on openai's api and the result stayed th
 
 I also created a small artifact to play around with [pricing numbers](https://decision-model-pricing.chidam.xyz)
 
+The code used for these experiments is on [GitHub](https://github.com/chidam333/decision-model-pricing)
+
 [^clef-price]: Clef's listed price is $0.038 per 1M tokens, but many requests were charged about half ($0.019), including the ones in the cost chart, so Clef's line there is at the lower price.
 [^clef-limit]: Clef accepts at most 64 questions per request, and about 1 call in 6 failed with an intermittent `400 This model does not support /v1/decisions` error; identical requests worked at other times.
 [^parallel-h]: Parallel's token counts don't follow a clean formula: it adds web search results that vary from request to request, so 45-50 is a rough fit.
