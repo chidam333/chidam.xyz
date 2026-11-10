@@ -27,7 +27,7 @@
         <div class="click" >
             <div class="pre text-amber-200 ml-6 lg:ml-12 text-lg">Helloo ! call me <span on:click={()=>{(chidam = (chidam==false) ? true :false)}}>chidam&nbsp;</span><span class:build={build} class:nobuild={!build} ><img src="/build.svg" style="height:14px; width:20px; margin:0% !important;" alt="builder svg"></span><span class:build={cartophile} class:nobuild={!cartophile}><img src="/india.svg" alt="indian svg" style="height: 14px;"></span><span class:build={wave} class:nobuild={!wave}><img src="/wave.svg" alt="wave svg" style="height: 20px;"></span><span class:build={observe} class:nobuild={!observe}><img src="/observe.svg" alt="observation" style="height:20px ;"></span><span class:chidam={chidam}></span>
             <br style="color: wheat;"/>
-            <div>I am currently a sophomore in <span class:uni={uni} on:click={()=>{uni = (uni==false) ? true : false}}> sastra university</span> .
+            <div>I am currently an engineer at <a href="https://www.presidio.com" target="_blank" class="text-amber-400 hover:underline">Presidio</a>, Chennai. Graduated from <span class:uni={uni} on:click={()=>{uni = (uni==false) ? true : false}}> sastra university</span> in 2025 .
             A <span on:click={()=>{build = (build==false) ? true : false}}>builder</span> from heart . <span class:cartophile={cartophile} on:click={()=>{cartophile = (cartophile==false) ? true : false}}>Cartophile</span>
             at times , just <span on:click={()=>{wave= (wave==false) ? true : false}}>flowing</span> and <span on:click={()=>{observe=(observe==false) ? true : false}}>observing</span> the other times .
             </div>
